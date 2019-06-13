@@ -1,0 +1,17 @@
+Component({
+  properties:{
+    type:{
+      type:String,
+      default:'primary'
+    },
+    isShow:{
+      type:Boolean,
+      default:false
+    }
+  },
+  methods:{
+    bindButtonTap(){
+      this.triggerEvent('buttonTap',{ccc:'dd'})
+    }
+  }
+})

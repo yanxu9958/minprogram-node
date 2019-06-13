@@ -1,0 +1,76 @@
+page {
+  background-color: #161923;
+}
+.word {
+  min-height: 100%;
+  .word__video {
+    width: 100%;
+    height: 422rpx;
+  }
+  .word__sentence {
+    margin: 59rpx auto 92rpx;
+    width: 82%;
+    max-height: 286rpx;
+  }
+  .word__sentence--english {
+    font-size: 39rpx;
+    color: #fff;
+    font-weight: Semibold;
+    .english__import {
+      color: #fe2c55;
+    }
+  }
+  .word__sentence--chinese {
+    margin-top: 20rpx;
+    font-size: 32rpx;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .word__import {
+    margin: 0 auto 42rpx;
+    width: 82%;
+    color: #fff;
+    // max-height: 218rpx;
+    display: flex;
+    flex-direction: column;
+    .import__text {
+      font-size: 64rpx;
+      line-height: 90rpx;
+    }
+    .import__symbol {
+      display: flex;
+      align-items: center;
+      font-size: 40rpx;
+    }
+    .import__explanation {
+      font-size: 29rpx;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    image {
+      width: 86rpx;
+      height: 75rpx;
+    }
+  }
+  .word__remember {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 9%;
+    color: #fe2c55;
+    font-size: 28rpx;
+    border: 1px solid #fe2c55;
+    width: 156rpx;
+    height: 60rpx;
+    border-radius: 6rpx;
+    vertical-align: middle;
+    image {
+      margin-right: 6rpx;
+      height: 35rpx;
+      width: 35rpx;
+    }
+  }
+  .word__tick {
+    margin-left: 9%;
+    width: 80rpx;
+    height: 80rpx;
+  }
+}

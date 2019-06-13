@@ -1,0 +1,5 @@
+<view>
+  <LoadingButton isShow="{{isShow}}" bindTap="bindButtonTap">
+    提交
+  </LoadingButton>
+</view>

@@ -1,0 +1,27 @@
+<view class="word">
+  <video class="word__video" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" controls></video>
+  <!-- 词意展示 -->
+  <view class="word__sentence">
+    <view class="word__sentence--english">
+      I got back in the car,and I
+      <span class="english__import">drove</span>
+      home to sleep it off
+    </view>
+    <view class="word__sentence--chinese">我回到车里，开车回家睡觉了。</view>
+  </view>
+  <!-- 重点单词 -->
+  <view class="word__import">
+    <view class="import__text">drove</view>
+    <view class="import__symbol" bindtap="bindAudioTap">
+      /drəʊv/
+      <image src="https://oss-image.mifengkong.cn/fr_public_6666/_e4acd4047dffd4dfb9db3a55f27f83ff.png"></image>
+    </view>
+    <view class="import__explanation">v. 驾驶；开车；驾车送(人)；拥有(或驾驶)…汽车</view>
+  </view>
+  <!-- 下部分的提示 -->
+  <image wx:if="{{isRemember}}" class="word__tick" src="https://oss-image.mifengkong.cn/fr_public_6666/_02da4837cd9e31b27b4d9292c17192ae.png"></image>
+  <span wx:else class="word__remember" bindtap="bindRemberTap">
+    <image src="https://oss-image.mifengkong.cn/fr_public_6666/_eb91adf3ff0b7f509b0c21deddaf6dfb.png" />
+    记住了
+  </span>
+</view>

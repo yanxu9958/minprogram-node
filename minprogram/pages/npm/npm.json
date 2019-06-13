@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "LoadingButton":"/components/loadingButton/loadingButton"
+  }
+}
