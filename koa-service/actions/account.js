@@ -3,6 +3,7 @@ const { getSession } = require('../lib/wx')
 async function login(code) {
   return await getSession(code)
 }
+
 module.exports = {
   login
 }

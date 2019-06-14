@@ -1,5 +1,4 @@
 const User = require('./model')
-const { encode } = require('../crypto')
 async function findAll() {
   return User.findAll()
 }

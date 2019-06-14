@@ -19,3 +19,9 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.user-motto {
+  word-break: break-all;
+  font-size: 12px;
+  color: #999;
+}
