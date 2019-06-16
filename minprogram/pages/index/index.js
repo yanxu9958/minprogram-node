@@ -21,8 +21,9 @@ Page({
           url: 'login',
           params: { code: res.code }
         })
-          .then(data => {
-            const { token } = data
+          .then(res => {
+            const { token } = res.data
+            console.log('token', res.data)
 
             if (token) {
               this.setData({

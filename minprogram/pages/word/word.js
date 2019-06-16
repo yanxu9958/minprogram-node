@@ -1,10 +1,14 @@
-// pages/word/word.js
+import callApi from '../../utils/network'
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    isRemember: false
+    isRemember: false,
+    movieText: 'I got back in the car,and I drove home to sleep it off',
+    targetWord: 'drove',
+    prefix: '',
+    suffix: ''
   },
   bindAudioTap() {
     this.audioCtx.play()
@@ -28,8 +32,20 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
-
+  onLoad: function(options) {
+    this.repalceWrod()
+    callApi({
+      url: 'word'
+    })
+  },
+  repalceWrod() {
+    const { targetWord, movieText } = this.data
+    const list = movieText.split(targetWord)
+    this.setData({
+      prefix: list[0],
+      suffix: list[1]
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

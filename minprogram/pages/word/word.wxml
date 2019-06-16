@@ -3,9 +3,9 @@
   <!-- 词意展示 -->
   <view class="word__sentence">
     <view class="word__sentence--english">
-      I got back in the car,and I
-      <span class="english__import">drove</span>
-      home to sleep it off
+      {{prefix}}
+      <text class="english__import">{{targetWord}}</text>
+      {{suffix}}
     </view>
     <view class="word__sentence--chinese">我回到车里，开车回家睡觉了。</view>
   </view>
