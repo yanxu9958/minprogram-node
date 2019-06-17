@@ -24,7 +24,7 @@ const Word = sequelize.define(
     audio: Sequelize.STRING(100),
     video: Sequelize.STRING(100),
     en_word: Sequelize.STRING(20),
-    movie_text: Sequelize.STRING(6000),
+    movie_text: Sequelize.ARRAY(6000),
     en_audio: Sequelize.STRING(15),
     cn_word: Sequelize.STRING(10)
   },

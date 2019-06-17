@@ -41,7 +41,7 @@ module.exports = app => {
   })
   router.get('/word', auth, async ctx => {
     const all = await findAllWord()
-    console.log('all', all)
+    handle(ctx, all)
   })
   app.use(router.routes())
 }
