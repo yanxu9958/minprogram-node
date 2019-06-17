@@ -1,10 +1,7 @@
-<!-- index.wxml -->
-<view class="container">
-  <view class="userinfo">
-    <button bindtap="bindLoginTap">点击登陆</button>
-  </view>
-  <view class="usermotto">
-    登陆凭证
-    <view class="user-motto">{{token}}</view>
-  </view>
-</view>
+<swiper autoplay="{{true}}" interval="{{2000}}" duration="{{1000}}" vertical="{{true}}" circular="{{true}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-item" />
+    </swiper-item>
+  </block>
+</swiper>
