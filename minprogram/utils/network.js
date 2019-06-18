@@ -6,7 +6,8 @@ export default function callApi({
   loading = true,
   method = 'GET'
 }) {
-  let baseUrl = 'http://localhost:5000/'
+  // let baseUrl = 'http://localhost:5000/'
+  let baseUrl = 'http://118.31.127.58:8080/'
   let initPrm = {}
   for (let item in params) {
     typeof params[item] === 'undefined' && (params[item] = '')

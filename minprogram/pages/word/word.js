@@ -13,7 +13,9 @@ Page({
     textList: [],
     explanation: '',
     prefix: '',
-    suffix: ''
+    suffix: '',
+    isPlay: false,
+    index: 0
   },
   bindAudioTap() {
     this.audioCtx.play()
@@ -26,8 +28,6 @@ Page({
       confirmText: '知道了',
       showCancel: false,
       success(res) {
-        console.log('this', _this)
-
         _this.setData({
           isRemember: true
         })
@@ -53,8 +53,15 @@ Page({
         en_audio,
         cn_word
       } = res.data[0]
-      console.log('value', audio, video, en_word, movie_text, en_audio, cn_word)
+      const textList = movie_text.map(item => {
+        const list = item.en_text.split(en_word)
+        const reg = new RegExp(en_word)
+        item.hasWord = reg.test(item.en_text)
+        console.log('list', list, item.hasWord)
 
+        item.prefix = list[0]
+        item.suffix = list[1]
+      })
       this.setData({
         audio,
         video,
@@ -63,6 +70,29 @@ Page({
         targetWord: en_word,
         explanation: cn_word
       })
+      console.log(this.data.textList)
+      this.setTextDisplay()
+    })
+  },
+  setTextDisplay() {
+    const list = this.data.textList
+    list.forEach((item, index) => {
+      const { start_time } = item
+      console.log('start_time', start_time)
+
+      if (index === 0) {
+        setTimeout(() => {
+          this.setData({
+            isPlay: true
+          })
+        }, start_time * 1000)
+      } else {
+        setTimeout(() => {
+          this.setData({
+            index
+          })
+        }, start_time * 1000)
+      }
     })
   },
   repalceWrod() {

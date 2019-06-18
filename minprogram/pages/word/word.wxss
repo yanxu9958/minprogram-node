@@ -9,17 +9,39 @@ page {
   height: 422rpx;
 }
 .word .word__sentence {
-  margin: 59rpx auto 92rpx;
+  position: relative;
+  margin: 0 auto;
   width: 82%;
-  max-height: 286rpx;
+  height: 286rpx;
+  padding-top: 25px;
+  color: rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
 }
-.word .word__sentence--english {
-  font-size: 39rpx;
-  color: #fff;
-  font-weight: Semibold;
+.word .word__sentence:after {
+  position: absolute;
+  content: '';
+  display: block;
+  bottom: 0;
+  left: -11%;
+  width: 122%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
 }
-.word .word__sentence--english .english__import {
+.word .word__sentence .sentence__chinese {
+  font-size: 28rpx;
+}
+.word .word__sentence .sentence__english {
+  margin-top: 20rpx;
+  font-size: 34rpx;
+}
+.word .word__sentence .sentence__english--import {
   color: #fe2c55;
+}
+.word .word__sentence--playing .sentence__english {
+  color: #fff;
+}
+.word .word__sentence--playing .sentence__chinese {
+  color: rgba(255, 255, 255, 0.6);
 }
 .word .word__sentence--chinese {
   margin-top: 20rpx;
@@ -34,6 +56,7 @@ page {
   flex-direction: column;
 }
 .word .word__import .import__text {
+  margin-top: 30rpx;
   font-size: 64rpx;
   line-height: 90rpx;
 }
@@ -43,7 +66,7 @@ page {
   font-size: 40rpx;
 }
 .word .word__import .import__explanation {
-  font-size: 29rpx;
+  font-size: 26rpx;
   color: rgba(255, 255, 255, 0.6);
 }
 .word .word__import image {

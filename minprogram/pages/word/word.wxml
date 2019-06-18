@@ -1,13 +1,19 @@
 <view class="word">
-  <video class="word__video" src="{{video}}" controls></video>
+  <video autoplay="{{true}}" class="word__video" src="{{video}}" loop="{{false}}" controls></video>
   <!-- 词意展示 -->
-  <view class="word__sentence">
-    <view class="word__sentence--english">
-      {{prefix}}
-      <text class="english__import">{{targetWord}}</text>
-      {{suffix}}
-    </view>
-    <view class="word__sentence--chinese">我回到车里，开车回家睡觉了。</view>
+  <view class="word__sentence {{isPlay?'word__sentence--playing':null}}">
+    <swiper interval="{{2000}}" duration="{{1000}}" vertical="{{true}}" current="{{index}}" circular="{{false}}">
+      <block wx:for="{{textList}}">
+        <swiper-item>
+          <view class="sentence__english">
+            {{item.prefix}}
+            <text wx:if="{{item.hasWord}}" class="sentence__english--import">{{targetWord}}</text>
+            {{item.suffix}}
+          </view>
+          <view class="sentence__chinese">{{item.cn_text}}</view>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
   <!-- 重点单词 -->
   <view class="word__import">
