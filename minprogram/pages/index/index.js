@@ -5,6 +5,7 @@ Page({
     token: '',
     list: []
   },
+
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
@@ -39,5 +40,17 @@ Page({
       }
     })
   },
-  onLoad: function() {}
+  checkSession() {
+    wx.checkSession({
+      success(res) {
+        console.log('res', res)
+      },
+      fail(err) {
+        console.log('err', err)
+      }
+    })
+  },
+  onLoad: function() {
+    this.checkSession()
+  }
 })

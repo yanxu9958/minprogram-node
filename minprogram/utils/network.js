@@ -4,16 +4,20 @@ export default function callApi({
   url,
   params,
   loading = true,
-  method = 'GET'
+  method = 'POST'
 }) {
-  // let baseUrl = 'http://localhost:5000/'
-  let baseUrl = 'http://118.31.127.58:8080/'
-  let initPrm = {}
+  let baseUrl = 'http://localhost:8082/'
+  // let baseUrl = 'http://118.31.127.58:8084/'
+  let initPrm = {
+    token: wx.getStorageSync(LOGIN_TOKEN)
+  }
   for (let item in params) {
     typeof params[item] === 'undefined' && (params[item] = '')
   }
 
   Object.assign(initPrm, params)
+  console.log('data', initPrm)
+
   loading && wxLoading()
   return new Promise(function(resolve, reject) {
     wx.request({
@@ -21,12 +25,11 @@ export default function callApi({
       data: initPrm,
       method, // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
-        'x-session': wx.getStorageSync(LOGIN_TOKEN)
+        'content-type': 'application/x-www-form-urlencoded'
       },
       success: function(res) {
         const { code } = res.data
         wx.hideLoading()
-
         if (code == 0) {
           resolve(res.data)
         } else if (code == 2) {
@@ -34,9 +37,9 @@ export default function callApi({
           wx.reLaunch({
             url: '/pages/index/index'
           })
-          wxToast(res.data.message)
           reject(res.data)
         }
+        wxToast(res.data.message)
       },
       fail: function(res) {
         wx.hideLoading()

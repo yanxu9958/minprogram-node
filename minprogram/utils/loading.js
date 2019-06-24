@@ -1,8 +1,4 @@
 export const wxToast = function(title, type, time) {
-  /**
-   *  type: success loading none
-   * */
-
   wx.showToast({
     title: title,
     icon: type || 'none',
